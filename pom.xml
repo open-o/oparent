@@ -55,7 +55,7 @@
             </dependency>
             <dependency>
               <groupId>org.openo.oparent</groupId>
-              <artifactId>license</artifactId>
+              <artifactId>openo-license</artifactId>
               <version>${project.version}</version>
             </dependency>
           </dependencies>

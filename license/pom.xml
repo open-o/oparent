@@ -8,6 +8,6 @@
     <relativePath>../version</relativePath>
   </parent>
 
-  <artifactId>license</artifactId>
+  <artifactId>openo-license</artifactId>
 
 </project>
