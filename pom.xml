@@ -24,7 +24,6 @@
     <relativePath>version</relativePath>
   </parent>
 
-  <groupId>org.openo.oparent</groupId>
   <artifactId>oparent</artifactId>
   <packaging>pom</packaging>
 
@@ -94,6 +93,7 @@
               </configuration>
             </execution>
             <execution>
+              <id>check-style</id>
               <goals>
                 <goal>check</goal>
               </goals>
