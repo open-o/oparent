@@ -17,14 +17,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <properties>
-    <open-o.version>1.0.0-SNAPSHOT</open-o.version>
-  </properties>
-  
+  <parent>
+    <groupId>org.openo.oparent</groupId>
+    <artifactId>version</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>version</relativePath>
+  </parent>
+
   <groupId>org.openo.oparent</groupId>
   <artifactId>oparent</artifactId>
-  <version>${open-o.version}</version>
-  <name>oparent</name> <!-- Used by Sonar to set project name -->
   <packaging>pom</packaging>
 
   <scm>
@@ -36,26 +37,14 @@
 
   <modules>
     <!-- oparent tools -->
+    <module>version</module>
     <module>checkstyle</module>
     <module>license</module>
   </modules>
 
-
   <build>
     <pluginManagement>
       <plugins>
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
         <plugin>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>2.17</version>
@@ -63,12 +52,12 @@
             <dependency>
               <groupId>org.openo.oparent</groupId>
               <artifactId>checkstyle</artifactId>
-              <version>1.0.0-SNAPSHOT</version>
+              <version>${project.version}</version>
             </dependency>
             <dependency>
               <groupId>org.openo.oparent</groupId>
               <artifactId>license</artifactId>
-              <version>1.0.0-SNAPSHOT</version>
+              <version>${project.version}</version>
             </dependency>
           </dependencies>
           <configuration>
@@ -118,31 +107,7 @@
       <plugin>
         <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
-      <plugin>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
-
-  <dependencyManagement>
-    <dependencies>
-
-      <!-- Build tool dependencies (normally not here in <dependencies>,
-           but in a <dependency> in <pluginManagement> but for Checkstyle this
-           is required so that we can share the same version of Checkstyle
-           for both the Maven plugin below as well as  for custom Checkstyle
-           check rule projects, such as yangtools' checkstyle-logging) -->
-      <dependency>
-        <groupId>com.puppycrawl.tools</groupId>
-        <artifactId>checkstyle</artifactId>
-        <!-- This should match the plugin management on maven-checkstyle-plugin below -->
-        <version>${checkstyle.version}</version>
-      </dependency>
-
-    </dependencies>
-  </dependencyManagement>
 
 </project>
