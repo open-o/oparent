@@ -60,7 +60,8 @@
             </dependency>
           </dependencies>
           <configuration>
-            <configLocation>open-o_checks.xml</configLocation>
+            <!-- Use Google Java Style Guide: https://google.github.io/styleguide/javaguide.html -->
+            <configLocation>google_checks.xml</configLocation>
             <!-- <sourceDirectory> is needed so that checkstyle ignores the
                  generated sources directory -->
             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
