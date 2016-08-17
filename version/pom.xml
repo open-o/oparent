@@ -8,6 +8,29 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <nexusproxy>https://nexus.open-o.org/content</nexusproxy>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+  <distributionManagement>
+    <repository>
+      <id>open-o-release</id>
+      <url>${nexusproxy}/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>open-o-snapshot</id>
+      <url>${nexusproxy}/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
 </project>
