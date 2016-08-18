@@ -14,14 +14,6 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-deploy-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
-
   <distributionManagement>
     <repository>
       <id>open-o-release</id>
