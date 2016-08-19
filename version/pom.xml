@@ -16,11 +16,11 @@
 
   <distributionManagement>
     <repository>
-      <id>open-o-release</id>
+      <id>open-o-releases</id>
       <url>${nexusproxy}/repositories/releases</url>
     </repository>
     <snapshotRepository>
-      <id>open-o-snapshot</id>
+      <id>open-o-snapshots</id>
       <url>${nexusproxy}/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
