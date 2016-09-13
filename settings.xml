@@ -33,6 +33,17 @@
             <enabled>true</enabled>
           </snapshots>
         </repository>
+        <repository>
+          <id>open-o-third-snapshots</id>
+          <name>open-o-third-snapshots</name>
+          <url>https://nexus.open-o.org/content/repositories/thirdparty-snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
       </repositories>
       <pluginRepositories>
         <pluginRepository>
@@ -81,7 +92,7 @@
 
   <activeProfiles>
     <activeProfile>open-o-snapshots</activeProfile>
-    <activeProfile>open-o-releases</activeProfile>
+    <!-- <activeProfile>open-o-releases</activeProfile> -->
   </activeProfiles>
 
 </settings>
