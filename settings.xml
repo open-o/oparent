@@ -34,8 +34,8 @@
           </snapshots>
         </repository>
         <repository>
-          <id>open-o-third-snapshots</id>
-          <name>open-o-third-snapshots</name>
+          <id>open-o-thirdparty-snapshots</id>
+          <name>open-o-thirdparty-snapshots</name>
           <url>https://nexus.open-o.org/content/repositories/thirdparty-snapshots/</url>
           <releases>
             <enabled>false</enabled>
