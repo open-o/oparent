@@ -41,6 +41,17 @@
     <module>license</module>
   </modules>
 
+  <properties>
+    <jacoco.version>0.7.2.201409121644</jacoco.version>
+    <!-- Default Sonar configuration -->
+    <sonar-jacoco-listeners.version>2.4</sonar-jacoco-listeners.version>
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+    <sonar.jacoco.reportPath>target/code-coverage/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.jacoco.itReportPath>target/code-coverage/jacoco-it.exec</sonar.jacoco.itReportPath>
+    <!-- Note: This list should match jacoco-maven-plugin's exclusion list below -->
+    <sonar.exclusions>**/gen/**,**/generated-sources/**,**/yang-gen**,**/pax/**</sonar.exclusions>
+  </properties>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -102,6 +113,21 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+	  <groupId>org.jacoco</groupId>
+	  <artifactId>jacoco-maven-plugin</artifactId>
+	  <version>${jacoco.version}</version>
+	  <configuration>
+	    <!-- Note: This exclusion list should match <sonar.exclusions>
+		 property above -->
+	    <excludes>
+	      <exclude>**/gen/**</exclude>
+	      <exclude>**/generated-sources/**</exclude>
+	      <exclude>**/yang-gen/**</exclude>
+	      <exclude>**/pax/**</exclude>
+	    </excludes>
+	  </configuration>
+	</plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -112,6 +138,31 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
         <version>1.12</version>
+      </plugin>
+      <!-- Jacoco / Sonar -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+	  <execution>
+	    <id>pre-unit-test</id>
+	    <goals>
+	      <goal>prepare-agent</goal>
+	    </goals>
+	    <configuration>
+	      <destFile>${sonar.jacoco.reportPath}</destFile>
+	    </configuration>
+	  </execution>
+	  <execution>
+	    <id>post-unit-test</id>
+	    <goals>
+	      <goal>report</goal>
+	    </goals>
+	    <configuration>
+	      <dataFile>${sonar.jacoco.reportPath}</dataFile>
+	    </configuration>
+	  </execution>
+	</executions>
       </plugin>
     </plugins>
   </build>
