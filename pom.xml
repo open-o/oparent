@@ -84,7 +84,7 @@
             <excludes>
             </excludes>
             <failsOnError>false</failsOnError>
-            <consoleOutput>false</consoleOutput>
+            <consoleOutput>true</consoleOutput>
           </configuration>
           <executions>
             <execution>
